@@ -7,34 +7,40 @@
       </form>
     </div>
     <div class="select-wrapper" >
-      <select class="select" (change)="regionFilter($event)">
+      <select class="select classic" (change)="regionFilter($event)">
         <option value=""> Select region </option>
         <option *ngFor="let region of filteredRegions" value="{{region.name}}">{{region.name}}</option>
       </select>
     </div>
   </span>
-  <div class="country-history">
-    countries visited:<span> <a *ngFor="let visited of visitedCountries" class="button1"> {{visited}} </a>  </span>
+  <div class="country-history" *ngIf="visitedCountries.length > 0 ">
+    <p> countries visited: </p>
+    <div class="country-row">
+      <a *ngFor="let visited of visitedCountries" class="button1"> {{visited}} </a>
+    </div>
   </div>
-  
 
-  <div  >
-    <div class="card-container">
+
+  <div>
+    <div *ngIf="!countriesExist" class="not-found">
+        <p> No country exists with that name. </p>
+    </div>
+    <div class="card-container" *ngIf="countriesExist">
       <div class="card" (click)="viewDetails(country)" *ngFor="let country of countries$ | async">
         <img src="{{country.flags.png}}">
         <div class="card-details">
           <h4> {{country.name.official}} </h4>
           <section>
             <div class="card-details__container">
-              <p>Population:</p> 
+              <p>Population:</p>
               <span class="tinytext"> {{country.population | number}} </span>
             </div>
             <div class="card-details__container">
-              <p>Region:</p> 
+              <p>Region:</p>
               <span class="tinytext"> {{country.region}} </span>
             </div>
             <div class="card-details__container">
-              <p>Capital:</p> 
+              <p>Capital:</p>
               <span class="tinytext"> {{country.capital}} </span>
             </div>
           </section>

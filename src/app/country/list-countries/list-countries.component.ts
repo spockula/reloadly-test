@@ -15,6 +15,7 @@ import { allCountries, routerState, searchedCountries } from '../store/country.s
 })
 export class ListCountriesComponent implements OnInit {
   storeSelector: any;
+  countriesExist: boolean = false;
   public isLoading: boolean = false;
   filteredRegions = [{
     name: 'Africa',
@@ -51,11 +52,11 @@ export class ListCountriesComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(new GetCountryLoad());
     this.store.pipe(select(allCountries)).subscribe((res: any) => {
+      this.countriesExist = true;
       this.countries$ = of(res.countries);
     });
     this.store.select(routerState).subscribe((data: any) => {
       this.visitedCountries = data.visitedCountries;
-      console.log('here', this.visitedCountries)
     });
   }
 
@@ -64,7 +65,11 @@ export class ListCountriesComponent implements OnInit {
     if (country !== '') {
       this.store.dispatch(new SearchAction(country))
       this.store.select(searchedCountries).subscribe((res: any) => {
+        this.countriesExist = true;
         this.countries$ = of(res);
+        if (res.length === 0) {
+          this.countriesExist = false;
+        }
       })
     }  else if (country === '') {
       this.store.pipe(select(allCountries)).subscribe((res: any) => {

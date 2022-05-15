@@ -1,0 +1,34 @@
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  border-bottom: 2px solid grey;
+}
+
+.span-dark {
+  margin: 0 26px;
+  color: white;
+}
+
+.span-light {
+  margin: 0 26px;
+  color: black;
+}
+
+.label-text {
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 100;
+}
+
+.label-text-dark {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 100;
+}

@@ -1,0 +1,10 @@
+
+<html>
+  <div class="toolbar" role="banner">
+    <span [ngClass]="{'span-dark': switch, 'span-light': !switch}">Where in the world?</span>
+      <div class="spacer"></div>
+      <input class="container_toggle" type="checkbox" id="switch" name="mode" (click)="switchTheme()">
+      <label for="switch" class="label-toggle">Toggle</label>
+      <span [ngClass]="{'label-text-dark': switch, 'label-text': !switch}">Dark mode</span>
+  </div>
+</html>

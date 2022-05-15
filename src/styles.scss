@@ -1,1 +1,229 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,900&display=swap');
+
+:host {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  background: var(--lightBg);
+  --lightBtn:#FE016C;
+  --lightBg:rgba(246, 240, 240, 0.871);
+  --lightColor:#232323;
+
+  &[data-theme='dark'] {
+    background: var(--lightBg);
+    --lightBtn:#FFBD07;
+    --lightBg:#232323;
+    --lightColor:#fff;
+  }
+}
+
+.drop-container {
+  float: right;
+}
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  border-bottom: 2px solid grey;
+
+  span {
+    margin: 0 26px;
+    color: black;
+  }
+}
+
+.label-text {
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 100;
+}
+
+input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.label-toggle {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 45px;
+  height: 20px;
+  background: var(--lightBtn);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  position: relative;
+
+  &:after {
+    content: '';
+    background: #fff;
+    width: 10px;
+    height: 10px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    transition: cubic-bezier(0.68, -0.55, 0.27, 1.55) 320ms;
+  }
+}
+
+input:checked + .label-toggle {
+  background: #FFBD07;
+
+  &:after {
+    left: calc(100% - 5px);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+html.transition {
+  transition: cubic-bezier(0.68, -0.55, 0.27, 1.55) 420ms !important;
+  transition-delay: 0 !important;
+
+  * {
+    transition: cubic-bezier(0.68, -0.55, 0.27, 1.55) 420ms !important;
+    transition-delay: 0 !important;
+
+    &:before, &:after {
+      transition: cubic-bezier(0.68, -0.55, 0.27, 1.55) 420ms !important;
+      transition-delay: 0 !important;
+    }
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 8px 0;
+}
+
+p {
+  margin: 0;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.content {
+  display: flex;
+  margin: 50px auto 32px;
+  padding: 16px 30px;
+  flex-direction: column;
+}
+
+svg.material-icons {
+  height: 24px;
+  width: auto;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+}
+
+a {
+  color: #1976d2;
+  text-decoration: none;
+
+  &:visited {
+    color: #1976d2;
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: #1976d2;
+    text-decoration: none;
+    color: #125699;
+  }
+}
+
+.circle-link {
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  margin: 8px;
+  background-color: white;
+  border: 1px solid #eeeeee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: 1s ease-out;
+
+  &:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card-container > *:not(.circle-link), .terminal {
+    width: 100%;
+  }
+
+  .content {
+    display: flex;
+    margin: 70px auto 32px;
+    padding: 16px 17px;
+    flex-direction: column;
+  }
+
+  .card-container {
+    display: block;
+  }
+
+  input#search-bar {
+    width: 65% !important;
+  }
+
+  .drop-container {
+    width: 64%;
+    align-items: center !important;
+  }
+
+  .card {
+    &:not(.highlight-card) {
+      height: 16px;
+      margin: 8px 0;
+    }
+
+    &.highlight-card span {
+      margin-left: 72px;
+    }
+  }
+
+  svg#rocket-smoke {
+    right: 120px;
+    transform: rotate(-5deg);
+  }
+}
+
+@media screen and (max-width: 575px) {
+  svg#rocket-smoke {
+    display: none;
+    visibility: hidden;
+  }
+}

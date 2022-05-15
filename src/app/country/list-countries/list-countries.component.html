@@ -1,0 +1,48 @@
+<div class="content">
+  <span>
+    <div style="float: left;">
+      <form class="search-container">
+        <input type="text" id="search-bar" [(ngModel)]="searchWord" name="trial" placeholder="Search for country" (input)="searchCountries(searchWord)" autocomplete="off">
+        <a><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+      </form>
+    </div>
+    <div class="select-wrapper" >
+      <select class="select" (change)="regionFilter($event)">
+        <option value=""> Select region </option>
+        <option *ngFor="let region of filteredRegions" value="{{region.name}}">{{region.name}}</option>
+      </select>
+    </div>
+  </span>
+  <div class="country-history">
+    Countries Visited:
+    <div *ngFor="let visited of visitedCountries">
+      <span><a class="button1"> {{visited}} </a> </span>
+    </div>
+  </div>
+  
+
+  <div  >
+    <div class="card-container">
+      <div class="card" (click)="viewDetails(country)" *ngFor="let country of countries$ | async">
+        <img src="{{country.flags.png}}">
+        <div class="card-details">
+          <h4> {{country.name.official}} </h4>
+          <section>
+            <div class="card-details__container">
+              <p>Population:</p> 
+              <span class="tinytext"> {{country.population | number}} </span>
+            </div>
+            <div class="card-details__container">
+              <p>Region:</p> 
+              <span class="tinytext"> {{country.region}} </span>
+            </div>
+            <div class="card-details__container">
+              <p>Capital:</p> 
+              <span class="tinytext"> {{country.capital}} </span>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

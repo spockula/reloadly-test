@@ -1,0 +1,56 @@
+<div class="details-container">
+  <div class="back-button">
+    <a [routerLink]="['/']" class="button3">Back</a>
+  </div>
+  
+  <div class="display-details">
+    <div class="card">
+      <img src="{{countryDetails.flags.svg}}">
+    </div>
+    <div class="display-info">
+      <h1> {{countryDetails.name.official}} </h1>
+      <section>
+        <div class="display-info__container">
+          <p>Common Name:</p> 
+          <span class="maintext"> {{countryDetails.name.common}} </span>
+        </div>
+        <div class="display-info__container">
+          <p>Borders:</p> 
+          <span class="maintext" *ngFor="let borders of countryDetails.borders"> {{borders}} </span>
+        </div>
+        <div class="display-info__container">
+          <p>Population:</p> 
+          <span class="maintext"> {{countryDetails.population | number}} </span>
+        </div>
+        <div class="display-info__container">
+          <p>Region:</p> 
+          <span class="maintext"> {{countryDetails.region}} </span>
+        </div>
+        <div class="display-info__container">
+          <p>Capital:</p> 
+          <span class="maintext"> {{countryDetails.capital}} </span>
+        </div>
+        <div class="display-info__container">
+          <p>Continent:</p> 
+          <span class="maintext" *ngFor="let continent of countryDetails.continents"> {{continent}} </span>
+        </div>
+        <div class="display-info__container">
+          <p>UN Member?</p> 
+          <span class="maintext"> {{countryDetails.unMember}} </span>
+        </div>
+        <div class="display-info__container">
+          <p>Sub-Region:</p> 
+          <span class="maintext"> {{countryDetails.subregion}} </span>
+        </div>
+        <div class="display-info__container">
+          <p>Area:</p> 
+          <span class="maintext"> {{countryDetails.area | number}} </span>
+        </div>
+        <div class="display-info__container">
+          <p>Independent?</p> 
+          <span class="maintext"> {{countryDetails.independent }} </span>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

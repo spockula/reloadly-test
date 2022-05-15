@@ -103,7 +103,8 @@ a {
   border: 5px solid transparent;
   transition: .2s ease;
   border-radius: 50px;
-  display: flex;
+  // height: fit-content;
+  min-width: fit-content !important;
 
   &:hover {
     color: #2d7eff;
@@ -115,8 +116,7 @@ a {
 
 .country-history {
   padding: 25px 15px 15px 0;
-  overflow-y: scroll;
-  display: flex;
+  overflow-x: scroll;
   width: auto;
 }
 
@@ -215,6 +215,10 @@ a {
 @media screen and (max-width: 767px) {
   .card-container > *:not(.circle-link), .terminal {
     width: 100%;
+  }
+
+  .country-history span {
+    display: flex;
   }
 
   .card-container {

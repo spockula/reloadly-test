@@ -14,10 +14,7 @@
     </div>
   </span>
   <div class="country-history">
-    Countries Visited:
-    <div *ngFor="let visited of visitedCountries">
-      <span><a class="button1"> {{visited}} </a> </span>
-    </div>
+    countries visited:<span> <a *ngFor="let visited of visitedCountries" class="button1"> {{visited}} </a>  </span>
   </div>
   
 

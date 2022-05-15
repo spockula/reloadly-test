@@ -103,6 +103,7 @@ a {
   border: 5px solid transparent;
   transition: .2s ease;
   border-radius: 50px;
+  display: flex;
 
   &:hover {
     color: #2d7eff;
@@ -116,6 +117,7 @@ a {
   padding: 25px 15px 15px 0;
   overflow-y: scroll;
   display: flex;
+  width: auto;
 }
 
 .card-container {

@@ -55,6 +55,7 @@ a {
   padding-left: 25px;
   padding-top: 10px;
   align-items: center;
+  overflow: ;
 }
 
 .maintext {
@@ -108,7 +109,7 @@ a {
 
     &:not(.highlight-card) {
       height: auto;
-      margin: 8px 0;
+      width: 324px;
     }
   }
 }

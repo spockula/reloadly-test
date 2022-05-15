@@ -17,9 +17,13 @@ html {
 
   &[data-theme='dark'] {
     background: var(--lightBg);
+    color: white;
     --lightBtn:#FFBD07;
     --lightBg:#232323;
     --lightColor:#fff;
+    p, h1, h2, h3, h4, h5, h6 {
+      color: white;
+    }
   }
 }
 

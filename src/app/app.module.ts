@@ -12,8 +12,6 @@ import { HeaderComponent } from './header/header.component';
 import { reducers, metaReducers } from './store/reducers';
 import { EffectsModule } from '@ngrx/effects'
 import { CountryModule } from './country/country.module';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { CustomSerializer } from './country/store/router.reducer';
 
 
 @NgModule({
@@ -28,9 +26,6 @@ import { CustomSerializer } from './country/store/router.reducer';
     CountryModule,
     HttpClientModule,
     EffectsModule.forRoot([]),
-    StoreRouterConnectingModule.forRoot({
-      serializer: CustomSerializer,
-    }),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
